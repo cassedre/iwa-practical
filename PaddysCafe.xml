@@ -1,4 +1,4 @@
-ASSESSMENTS> 
+<ASSESSMENTS> 
     <STUDENT name="Smith"> 
         <MARK theCourse="4BA1">75</MARK> 
         <MARK theCourse="4BA5">99</MARK> 
