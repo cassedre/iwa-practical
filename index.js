@@ -24,7 +24,14 @@ const router = express(),
             stylesheet = xmlParse(xsl);
 
             let result = xsltProcess(doc, stylesheet);
+
+            console.log(result);
+
+            res.end(result.toString());
+
             console.log(result.toString());
+
+
 
         });
 
