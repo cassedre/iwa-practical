@@ -15,6 +15,7 @@ const router = express(), //instantiating Express
         router.get('/', function(req,res){
             
             res.writeHead(200,{'Content-type' : 'text/html'}); //tell the user that the resource existe and which type it that.
+            
             let xml = fs.readFileSync('PaddysCafe.xml','utf8'), //read the xml file
             xsl = fs.readFileSync('PaddysCafe.xsl','utf8'); //read in the xsl file
 
@@ -30,7 +31,7 @@ const router = express(), //instantiating Express
 
             res.end(result.toString());
 
-            console.log(result.toString());
+           
 
 
 
