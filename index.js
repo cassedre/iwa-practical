@@ -7,24 +7,25 @@ xmlParse = require("xslt-processor").xmlParse, //Parsing xml
 xsltProcess = require("xslt-processor").xsltProcess;  //processing xslt
 
 
-const router = express(),
+const router = express(), //instantiating Express
         server = http.createServer(router);
 
         router.use(express.static(path.resolve(__dirname,'views'))); //serving static
 
         router.get('/', function(req,res){
             
-            let xml = fs.readFileSync('PaddysCafe.xml','utf8'),
-            xsl = fs.readFileSync('PaddysCafe.xsl','utf8');
+            res.writeHead(200,{'Content-type' : 'text/html'}); //tell the user that the resource existe and which type it that.
+            let xml = fs.readFileSync('PaddysCafe.xml','utf8'), //read the xml file
+            xsl = fs.readFileSync('PaddysCafe.xsl','utf8'); //read in the xsl file
 
             console.log(xml);
             console.log(xsl)
 
-            let doc = xmlParse(xml),
-            stylesheet = xmlParse(xsl);
+            let doc = xmlParse(xml), //parse the xml file
+            stylesheet = xmlParse(xsl); //parse the xsl file
 
-            let result = xsltProcess(doc, stylesheet);
-
+            let result = xsltProcess(doc, stylesheet); //performing xslt
+ 
             console.log(result);
 
             res.end(result.toString());
